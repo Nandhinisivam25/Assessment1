@@ -1,0 +1,108 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  width: 500px;
+  min-width: 200px;
+  padding: 10px;
+  background: #fff;
+  max-height: 400px;
+  height: auto;
+}
+
+.form .result {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+  border: 1px solid #ccc;
+  padding: 5px 0px;
+  border-radius: 3px;
+}
+
+.form .result::-webkit-scrollbar {
+  display: none;
+}
+
+.form .result-values {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.form .result-values p {
+  color: #000;
+  font-size: 14px;
+  border: none;
+  background-color: #f2f2f2;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 3px 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.form .result-values p img {
+  width: 12px;
+  margin: 2px 0 0 5px;
+}
+
+.form input {
+  min-width: 100px;
+  width: 100%;
+  border: none;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.options {
+  margin-top: 10px;
+}
+
+select {
+  background: #f2f2f2;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  max-height: 150px;
+  height: auto;
+}
+
+select::-webkit-scrollbar {
+  width: 5px;
+}
+
+select::-webkit-scrollbar-track {
+  background: transparent;
+  width: 10px;
+}
+
+select::-webkit-scrollbar-thumb {
+  background: rgb(180, 180, 180);
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+select option {
+  padding: 5px;
+  margin: 7px 0;
+}
+
+select:focus {
+  outline: none;
+  border: none;
+}
