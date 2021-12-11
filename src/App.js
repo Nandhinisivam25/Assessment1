@@ -1,121 +1,26 @@
 import { useState } from "react";
 import Remove from "./assets/images/bx-x-circle.svg";
 import "./styles.css";
-
 const App = () => {
   const [values, setValues] = useState([]);
-  const [options, setOptions] = useState([
-    "Whitney Reid",
-    "Hiroko Potter",
-    "Basia Higgins",
-    "Lana Hurley",
-    "Jesse Hayden",
-    "Keely Moon",
-    "Dolan Curtis",
-    "Ayanna Hunter",
-    "Hop Peterson",
-    "McKenzie Osborne",
-    "Martin Holman",
-    "Fay Yates",
-    "Drake Rush",
-    "Paloma Trevino",
-    "Tara Alvarado",
-    "Hakeem Faulkner",
-    "Garrett White",
-    "Nehru Shaw",
-    "Dieter Arnold",
-    "Catherine Cotton",
-    "Cadman Sharpe",
-    "Stephen Trujillo",
-    "Coby Dodson",
-    "Guy Raymond",
-    "Hunter Wiley",
-    "Adara Wolfe",
-    "Quintessa Smith",
-    "Tanek Lowe",
-    "Alma Dyer",
-    "Ross Lynn",
-    "Marsden Reed",
-    "Aristotle Witt",
-    "Cody Baird",
-    "Emery Drake",
-    "Dennis Petersen",
-    "Ulric Mcconnell",
-    "Christine Woodward",
-    "Serena Lowe",
-    "Caesar Strickland",
-    "Cara Hamilton",
-    "Chava Bray",
-    "Elvis Forbes",
-    "Briar Case",
-    "Gretchen Wade",
-    "Leroy Morrison",
-    "Adria Haynes",
-    "Lesley Crosby",
-    "Chiquita Valenzuela",
-    "Clinton Hobbs",
-    "Macaulay Abbott",
-    "Noelani Campos",
-    "Savannah Cameron",
-    "Isaiah Sanders",
-    "Cody Livingston",
-    "Mary Terrell",
-    "Abigail Velez",
-    "Baker Hewitt",
-    "Vernon Shields",
-    "Janna Andrews",
-    "Keane Bauer",
-    "Mason Foreman",
-    "Lydia Zamora",
-    "Harrison Dunlap",
-    "Sandra Mason",
-    "Dolan Green",
-    "Jordan Lynch",
-    "Yvonne Johns",
-    "Anthony Clarke",
-    "Palmer Boyd",
-    "Herrod Cantu",
-    "Arthur Newman",
-    "Samson Reid",
-    "Brittany Nguyen",
-    "Jenette Franco",
-    "Donovan Decker",
-    "Wing Calderon",
-    "Libby Rich",
-    "Martha Mendez",
-    "Nicole Jenkins",
-    "Kane Pacheco",
-    "Ciara Lindsey",
-    "Uriel Rosales",
-    "Alice Christensen",
-    "Avram Quinn",
-    "Rigel Rhodes",
-    "Hiram Vaughan",
-    "Teagan Alston",
-    "Alvin Johns",
-    "Galena Dillard",
-    "Raphael Adams",
-    "Heidi Blankenship",
-    "Ria Mcclure",
-    "Evangeline Hunter",
-    "Brenda Lopez",
-    "Jillian Kane",
-    "Macon Tanner",
-    "Gage Mcdonald",
-    "Ivory Hudson",
-    "Nayda Sanchez",
-    "Deacon Henry"
-  ]);
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const change = (event) => {
+  const [options, setOptions] = useState([]);
+  var url = "https://61b23971c8d4640017aaf2cb.mockapi.io/Ass/users";
+  fetch(url)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        var data_received = result[0]['members'];
+        setOptions(data_received);
+      }
+    )
+    const [selectedOption, setSelectedOption] = useState(null);
+    const change = (event) => {
     const value = event.target.value;
     if (values.includes(value) === false) {
       setValues([...values, value]);
       setSelectedOption(null);
     }
   };
-
   const searchHandler = (event) => {
     const allOptions = [...options];
     allOptions.map((el) => {
@@ -130,12 +35,10 @@ const App = () => {
       }
     });
   };
-
   const removeHandler = (item) => {
     const filteredValues = values.filter((value) => value !== item);
     setValues(filteredValues);
   };
-
   return (
     <div className="app">
       <div className="form">
